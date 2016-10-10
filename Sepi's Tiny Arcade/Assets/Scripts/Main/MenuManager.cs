@@ -11,10 +11,15 @@ public class MenuManager : MonoBehaviour {
         menuAnim.SetBool("IsOpen", true);
     }
 
-    public void ChangeMenu (GameObject menu){
+    public void ChangeMenu(GameObject menu) {
         menuAnim.SetBool("IsOpen", false);
         menuAnim = menu.GetComponent<Animator>();
         menuAnim.SetBool("IsOpen", true);
         currMenu = menu;
+    }
+    public void Update() {
+        if (Input.GetButtonDown("Cancel")) {
+            ChangeMenu(transform.FindChild("Menus").FindChild("MainMenu").gameObject);
+        }
     }
 }
