@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,15 +26,15 @@ public class MenuManager : MonoBehaviour {
             ChangeMenu(transform.FindChild("Menus").FindChild("MainMenu").gameObject);
         }
     }
-    public void MenuEvent (Events EOption, int option) {
-        switch (){
-            case (Events)0  :
+    public void MenuEvent (int option) {
+        switch (option){
+            case 0 :
                 Application.Quit();
                 break;
-            case (Events)1 :
-                Application.LoadLevel(option);
-                break;  
 
         }
+    }
+    public void LoadScene (string scene) {
+        SceneManager.LoadScene(scene);
     }
 }
